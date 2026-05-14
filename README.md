@@ -1,4 +1,4 @@
-readme_content = """# 📄 PDF Chat Intelligence: LangChain & LangGraph RAG Agent
+📄 PDF Chat Intelligence: LangChain & LangGraph RAG Agent
 
 A sophisticated Streamlit application that allows users to upload multiple PDF documents and interact with them using an AI agent. The system uses a **Retrieval-Augmented Generation (RAG)** architecture, leveraging LangChain for document processing and LangGraph for agentic reasoning.
 

@@ -38,6 +38,31 @@ Before running the application, ensure you have the following:
 
 ---
 
+## 🧠 System Architecture
+
+The application follows a structured RAG pipeline to ensure accurate information retrieval[cite: 1]:
+
+1. **Document Ingestion:** The `PyPDFDirectoryLoader` reads all files from the local storage[cite: 1].
+2. **Chunking:** Documents are split into 1000-character segments with a 200-character overlap to preserve context[cite: 1].
+3. **Vectorization:** OpenAI's `text-embedding-3-large` model converts text into high-dimensional vectors[cite: 1].
+4. **Agent Logic:** 
+    * The user sends a query[cite: 1].
+    * The agent evaluates the query against its `system_prompt`[cite: 1].
+    * If specific knowledge is needed, the agent calls the `retrieve_context` tool[cite: 1].
+    * The tool performs a similarity search ($k=3$) and feeds the text back to the LLM[cite: 1].
+5. **Response:** The LLM generates a grounded answer based on the retrieved snippets[cite: 1].
+
+---
+
+## ⚠️ Important Notes
+
+* **Storage:** This version uses an `InMemoryVectorStore`[cite: 1]. If you restart the Streamlit application, the vector database will be cleared[cite: 1].
+* **Model Selection:** The code currently uses `openai/gpt-oss-20b` via Groq[cite: 1]. Ensure this model is available or update the model string[cite: 1].
+* **Concurrency:** The `thread_id` is currently hardcoded to `1`[cite: 1]. In a multi-user environment, this should be dynamically generated[cite: 1].
+* **Directory Setup:** Ensure a `./doc_files/` directory exists in your root folder for document processing[cite: 1].
+
+---
+
 ## ⚙️ Installation & Setup
 
 1.  **Clone the Repository**

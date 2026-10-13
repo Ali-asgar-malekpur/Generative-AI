@@ -39,7 +39,7 @@ if "messages" not in st.session_state:
 groq_api_key = ""
 if LLM_BACKEND == "groq":
     groq_api_key = st.sidebar.text_input(
-        "Groq API key",
+        "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",
         type="password",
         value=os.getenv("GROQ_API_KEY", ""),
         help="Free key from console.groq.com",
